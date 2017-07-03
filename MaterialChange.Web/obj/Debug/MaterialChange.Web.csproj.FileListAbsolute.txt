@@ -1,0 +1,76 @@
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.pdb
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\WebStyleBaseForEnergy.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\WebUserContorls.Web.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\WebUserControls.Infrastructure.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\WebUserControls.Service.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\InternalMemeryRestore.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\EasyUIJsonParser.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\SqlServerDataAdapter.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.csprojResolveAssemblyReference.cache
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.dll
+c:\users\xu\documents\visual studio 2012\Projects\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.pdb
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.pdb
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\SqlServerDataAdapter.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\InternalMemeryRestore.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\SqlServerDataAdapter.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\InternalMemeryRestore.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.pdb
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.pdb
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\EasyUIJsonParser.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\WebStyleBaseForEnergy.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\WebUserContorls.Web.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\WebUserControls.Infrastructure.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\WebUserControls.Service.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\SqlServerDataAdapter.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\InternalMemeryRestore.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.pdb
+H:\调试程序\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.pdb
+H:\调试程序\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.csprojResolveAssemblyReference.cache
+H:\调试程序\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.dll
+H:\调试程序\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\SqlServerDataAdapter.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\InternalMemeryRestore.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\SqlServerDataAdapter.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\InternalMemeryRestore.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\bin\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Web\obj\Debug\MaterialChange.Web.pdb

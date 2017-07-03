@@ -1,0 +1,29 @@
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.pdb
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\bin\Release\SqlServerDataAdapter.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.csprojResolveAssemblyReference.cache
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.pdb

@@ -1,0 +1,17 @@
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.dll
+C:\Users\Xu\Documents\Visual Studio 2012\Projects\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\2017.4.1日需要上传到git\MaterialChange\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\只放最新程序\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.pdb

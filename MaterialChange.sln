@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialChange.Web", "MaterialChange.Web\MaterialChange.Web.csproj", "{AEE72BE5-8361-4FA0-8210-B4059574849A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialChange.Infrastructure", "MaterialChange.Infrastructure\MaterialChange.Infrastructure.csproj", "{AB6A28E1-4D15-43F9-8084-3FDDD2265F91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialChange.Service", "MaterialChange.Service\MaterialChange.Service.csproj", "{EE989998-A4A1-449F-88E0-E08FB708DB6A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEE72BE5-8361-4FA0-8210-B4059574849A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE72BE5-8361-4FA0-8210-B4059574849A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE72BE5-8361-4FA0-8210-B4059574849A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE72BE5-8361-4FA0-8210-B4059574849A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6A28E1-4D15-43F9-8084-3FDDD2265F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6A28E1-4D15-43F9-8084-3FDDD2265F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6A28E1-4D15-43F9-8084-3FDDD2265F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6A28E1-4D15-43F9-8084-3FDDD2265F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE989998-A4A1-449F-88E0-E08FB708DB6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE989998-A4A1-449F-88E0-E08FB708DB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE989998-A4A1-449F-88E0-E08FB708DB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE989998-A4A1-449F-88E0-E08FB708DB6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
