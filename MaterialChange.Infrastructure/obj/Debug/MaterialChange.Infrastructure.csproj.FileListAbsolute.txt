@@ -16,3 +16,8 @@ C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Infrastructure\bin\
 C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Infrastructure\bin\Debug\MaterialChange.Infrastructure.pdb
 C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Infrastructure\obj\Debug\MaterialChange.Infrastructure.dll
 C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Infrastructure\obj\Debug\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\bin\Debug\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\bin\Debug\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\obj\Debug\MaterialChange.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\obj\Debug\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\obj\Debug\MaterialChange.Infrastructure.pdb

@@ -532,7 +532,13 @@ namespace MaterialChange.Service.MaterialDetail
                 }
                 table.Rows[i]["Production"] = sumProduction;
                 table.Rows[i]["Formula"] = sumFormula;
-                table.Rows[i]["Consumption"] = Convert.ToDouble((sumFormula / sumProduction).ToString("0.00"));
+                if (sumProduction.ToString().Trim() == "0" || sumProduction.ToString().Trim() == "")
+                {
+                    table.Rows[i]["Consumption"] = "0";
+                }
+                else {
+                    table.Rows[i]["Consumption"] = Convert.ToDouble((sumFormula / sumProduction).ToString("0.00"));
+                }              
                 i = i + length;
             }
             for (int i = 0; i < table.Rows.Count; i++)

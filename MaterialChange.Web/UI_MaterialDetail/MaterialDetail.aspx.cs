@@ -19,11 +19,11 @@ namespace MaterialChange.Web.UI_MaterialDetail
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_qtx_tys" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_klqc_klqf", "zc_nxjc_whsmc_whsmf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif
-                this.OrganisationTree_ProductionLine.Organizations = GetDataValidIdGroup("ProductionOrganization");                         //向web用户控件传递数据授权参数
+                this.OrganisationTree_ProductionLine.Organizations = GetDataValidIdGroup("ProductionOrganization");  //向web用户控件传递数据授权参数
                 this.OrganisationTree_ProductionLine.PageName = "MaterialDetail.aspx";   //向web用户控件传递当前调用的页面名称
                 this.OrganisationTree_ProductionLine.OrganizationTypeItems.Add("水泥磨");
                 this.OrganisationTree_ProductionLine.LeveDepth = 7;

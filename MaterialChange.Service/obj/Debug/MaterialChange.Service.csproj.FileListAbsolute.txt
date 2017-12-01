@@ -42,3 +42,10 @@ C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\b
 C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\obj\Debug\MaterialChange.Service.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\obj\Debug\MaterialChange.Service.dll
 C:\Users\Administrator\Desktop\修改中\MaterialChange\MaterialChange.Service\obj\Debug\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Service\bin\Debug\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Service\bin\Debug\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Service\bin\Debug\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Service\bin\Debug\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Service\obj\Debug\MaterialChange.Service.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Service\obj\Debug\MaterialChange.Service.dll
+C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Service\obj\Debug\MaterialChange.Service.pdb
