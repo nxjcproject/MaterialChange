@@ -26,16 +26,16 @@
          <div data-options="region:'west'" style="width: 150px;">
             <uc1:OrganisationTree ID="OrganisationTree_ProductionLine" runat="server" />
         </div>
-          <div id="toorBar" title="" style="height:60px;padding:10px;">
+          <div id="toorBar" title="" style="height:55px;padding:5px;">
             <div>
                 <table>
                     <tr>
-                        <td>组织机构:</td>
+                        <td style="width: 60px; text-align: right;">组织机构</td>
                         <td >                               
                             <input id="organizationName" class="easyui-textbox" readonly="readonly"style="width:100px" />  
                             <input id="organizationId" readonly="readonly" style="display: none;" />             
                         </td>
-                        <td>开始时间：</td>
+                        <td style="width: 60px; text-align: right;">开始时间</td>
                         <td>
                              <input id="startTime" type="text" class="easyui-datetimebox" style="width:150px;" required="required"/>
                         </td>
@@ -45,7 +45,7 @@
                         </td>--%>
                     </tr>
                     <tr>
-                        <td>水泥品种</td>
+                        <td style="width: 60px; text-align: right;">水泥品种</td>
                         <td>
                             <input id="materialType" type="text" class="easyui-combobox" style="width:100px;" />
                         </td>
@@ -53,7 +53,7 @@
                         <td>
                              <input id="startTime" type="text" class="easyui-datetimebox" style="width:150px;" required="required"/>
                         </td>--%>
-                           <td>结束时间：</td>
+                           <td style="width: 60px; text-align: right;">结束时间</td>
                          <td>
                              <input id="endTime" type="text" class="easyui-datetimebox" style="width:150px;" required="required"/>
                         </td>

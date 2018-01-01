@@ -20,3 +20,8 @@ C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructu
 C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.dll
 C:\Users\Administrator\Desktop\MaterialChange-master\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Infrastructure\bin\Release\MaterialChange.Infrastructure.pdb
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.dll
+C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Infrastructure\obj\Release\MaterialChange.Infrastructure.pdb

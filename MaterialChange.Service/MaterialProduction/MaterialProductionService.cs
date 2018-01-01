@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace MaterialChange.Service.Production
 {
@@ -346,10 +347,6 @@ namespace MaterialChange.Service.Production
                     }
                     double lastFormula=Convert.ToDouble(mFormula);
                     string mProduction = table.Rows[i]["Production"].ToString().Trim();
-                    //if (mProduction == "")
-                    //{
-                    //    mProduction = "0";
-                    //}
                     double lastProduction=Convert.ToDouble(mProduction);
                     double mConsumption = Convert.ToDouble((lastFormula / lastProduction).ToString("0.00"));
                     //string lastConsumption = Convert.ToString(mConsumption);
@@ -359,9 +356,7 @@ namespace MaterialChange.Service.Production
                 {
                     string mConsumption = "";
                     table.Rows[i]["Consumption"] = mConsumption;
-                }
-                //string firstName = table.Rows[i]["Name"].ToString().Trim();
-                //string secondName = table.Rows[i + 1]["Name"].ToString().Trim();                
+                }   
             }
             for (int i = 0; i < table.Rows.Count; )
             {
@@ -370,42 +365,33 @@ namespace MaterialChange.Service.Production
                 int length = m_SubRoot.Length;
                 double sumProduction = 0;
                 double sumFormula = 0;
-                //double sumConsumption = 0;
                 for (int j = 0; j < length; j++)
                 {
                     string mmProduction = m_SubRoot[j]["Production"].ToString().Trim();
-                    if (mmProduction=="")
+                    if (mmProduction == "")
                     {
                         mmProduction = "0";
                     }
                     double m_Prodcution = Convert.ToDouble(mmProduction);
                     sumProduction = sumProduction + m_Prodcution;
                     string mmFormula=m_SubRoot[j]["Formula"].ToString().Trim();
-                    if (mmFormula=="")
+                    if (mmFormula == "") 
                     {
                         mmFormula = "0";
                     }
                     double m_formula = Convert.ToDouble(mmFormula);
                     sumFormula = sumFormula + m_formula;
-                    //string mmConsumption = m_SubRoot[j]["Consumption"].ToString().Trim();
-                    //if (mmConsumption=="")
-                    //{
-                    //    mmConsumption = "0";
-                    //}
-                    //double m_consumption = Convert.ToDouble(mmConsumption);
-                    //sumConsumption = sumConsumption + m_consumption;
                 }                
                 table.Rows[i]["Production"] = sumProduction;
                 table.Rows[i]["Formula"] = sumFormula;
-                table.Rows[i]["Consumption"] = Convert.ToDouble((sumFormula / sumProduction).ToString("0.00"));
-                i = i + length;
-            }
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                if (table.Rows[i]["Consumption"].ToString()=="非数字")
-                {
-                    table.Rows[i]["Consumption"] = "0";   
+                if (sumProduction.ToString("0.00") == "0.00" || sumFormula.ToString("0.00") == "0.00"){
+                    table.Rows[i]["Consumption"] = Convert.ToString("0.00"); 
                 }
+                else {
+                    table.Rows[i]["Consumption"] = Convert.ToDouble((sumFormula / sumProduction).ToString("0.00"));
+                }
+                
+                i = i + length;
             }
             return table;
         }

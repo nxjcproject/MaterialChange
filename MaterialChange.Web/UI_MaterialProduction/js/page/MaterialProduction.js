@@ -32,7 +32,13 @@ function LoadProductionLine(value) {
                 textField: 'Name',
                 panelHeight: 'auto',
                 data: myData.rows,
-                onSelect: function (record) {
+                onLoadSuccess: function () { //加载完成后,设置选中第一项
+                    var val = $(this).combobox("getData");
+                    for (var item in val[0]) {
+                        if (item == "OrganizationID") {
+                            $(this).combobox("setValue", val[0][item]);
+                        }
+                    }
                 }
             });
         },
@@ -46,12 +52,12 @@ function LoadTreeGrid(type, myData) {
         $('#grid_Main').treegrid({
             columns: [[
                   { field: 'Name', title: '产线', width: 150 },
-                  { field: 'VariableId', title: '水泥品种', width: 100 },
+                  { field: 'VariableId', title: '水泥品种', width: 130 },
                   //{ field: 'ChangeStartTime', title: '品种更换开始时间', width: 100 },
                   //{ field: 'ChangeEndTime', title: '品种更换结束时间', width: 100 },
-                  { field: 'Production', title: '产量', width: 100, align: 'right' },
-                  { field: 'Formula', title: '电量', width: 100, align: 'right' },
-                  { field: 'Consumption', title: '电耗', width: 100, align: 'right'}
+                  { field: 'Production', title: '产量', width: 100, align: 'left' },
+                  { field: 'Formula', title: '电量', width: 100, align: 'left' },
+                  { field: 'Consumption', title: '电耗', width: 100, align: 'left' }
                   //{ field: 'Production', title: '产量', width: 100, align: 'left' }
             ]],
             fit: true,

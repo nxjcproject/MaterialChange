@@ -44,7 +44,7 @@ function LoadTreeGrid(type, myData) {
     if (type == "first") {
         $('#grid_Main').treegrid({
             columns: [[
-                  { field: 'VariableId', title: '水泥品种', width: 130 },
+                  { field: 'VariableId', title: '水泥品种', width: 150 },
                   {
                       field: 'ChangeStartTime', title: '开始时间', width: 130,
                       formatter: function (value, row) {
@@ -67,10 +67,10 @@ function LoadTreeGrid(type, myData) {
                           }
                       }
                   },
-                  { field: 'RunTime', title: '运行时间', width: 80 },
+                  { field: 'RunTime', title: '运行时间', width: 100 },
                   { field: 'Production', title: '产量', width: 70, align: 'right' },
                   { field: 'HourProduction', title: '台时产量', width: 70, align: 'right' },
-                  { field: 'Formula', title: '工序电量', width: 70, align: 'right' },
+                  { field: 'Formula', title: '工序电量', width: 80, align: 'right' },
                   { field: 'Consumption', title: '工序电耗', width: 70, align: 'right' }
                   //{ field: 'Production', title: '产量', width: 100, align: 'left' }
             ]],
