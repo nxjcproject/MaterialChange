@@ -55,7 +55,8 @@ function LoadTreeGrid(type, myData) {
                   { field: 'VariableId', title: '水泥品种', width: 130 },
                   //{ field: 'ChangeStartTime', title: '品种更换开始时间', width: 100 },
                   //{ field: 'ChangeEndTime', title: '品种更换结束时间', width: 100 },
-                  { field: 'Production', title: '产量', width: 100, align: 'left' },
+                  { field: 'Production', title: '水泥产量', width: 100, align: 'left' },
+                  { field: 'ClinkerConsumptionValue', title: '水泥料耗', width: 100, align: 'left' },
                   { field: 'Formula', title: '电量', width: 100, align: 'left' },
                   { field: 'Consumption', title: '电耗', width: 100, align: 'left' }
                   //{ field: 'Production', title: '产量', width: 100, align: 'left' }

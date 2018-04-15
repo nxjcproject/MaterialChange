@@ -26,8 +26,7 @@ namespace MaterialChange.Service.Production
                               GROUP BY A.[OrganizationID],B.[Name]";
             SqlParameter parameter = new SqlParameter("mOrganizationID", mOrganizationId);
             DataTable table = dataFactory.Query(sql, parameter);
-            DataRow newrow;
-            newrow = table.NewRow();
+            DataRow newrow = table.NewRow();
             newrow["OrganizationID"] = "cementmill";
             newrow["Name"] = "全部";
             table.Rows.InsertAt(newrow, 0);
@@ -51,7 +50,9 @@ namespace MaterialChange.Service.Production
 		                            ,B.[MaterialDataTableName]
                                     ,'' as [LevelCode]
 		                            ,'leafnode' as [NodeType]
-	                            FROM [NXJC].[dbo].[material_MaterialChangeLog] A,[NXJC].[dbo].[material_MaterialChangeContrast] B,[NXJC].[dbo].[system_Organization] C
+	                            FROM [dbo].[material_MaterialChangeLog] A,
+                                     [dbo].[material_MaterialChangeContrast] B,
+                                     [dbo].[system_Organization] C
 	                            where A.OrganizationID like @mOrganizationId + '%'
                                     and A.OrganizationID=C.OrganizationID
 	                                and B.[ContrastID]=A.[ContrastID]
@@ -65,9 +66,19 @@ namespace MaterialChange.Service.Production
                                     or (A.[ChangeStartTime]<=@endTime and A.[ChangeEndTime] is NULL))
                                 )
 	                            union all
-	                            (SELECT  A.[OrganizationID],C.[Name],'' as [MaterialColumn],'' as [ChangeStartTime],'' as [ChangeEndTime],'' as [VariableId]
-	                            ,'' as [MaterialDataBaseName],'' as [MaterialDataTableName],'' as [LevelCode], 'node' as [NodeType]
-	                             from [NXJC].[dbo].[material_MaterialChangeLog] A,[NXJC].[dbo].[material_MaterialChangeContrast] B,[NXJC].[dbo].[system_Organization] C
+	                            (SELECT  A.[OrganizationID]
+                                        ,C.[Name]
+                                        ,'' as [MaterialColumn]
+                                        ,'' as [ChangeStartTime]
+                                        ,'' as [ChangeEndTime]
+                                        ,'' as [VariableId]
+                                        ,'' as [MaterialDataBaseName]
+                                        ,'' as [MaterialDataTableName]
+                                        ,'' as [LevelCode]
+                                        ,'node' as [NodeType]
+	                             from [dbo].[material_MaterialChangeLog] A,
+                                      [dbo].[material_MaterialChangeContrast] B,
+                                      [dbo].[system_Organization] C
 	                            where A.OrganizationID like @mOrganizationId + '%'
                                     and A.OrganizationID=C.OrganizationID
 	                                and B.[ContrastID]=A.[ContrastID]
@@ -79,7 +90,6 @@ namespace MaterialChange.Service.Production
                                     and A.[ChangeEndTime]<=@endTime) or (A.[ChangeStartTime]<=@startTime and A.[ChangeEndTime]>=@endTime)
 	                                or (A.[ChangeStartTime]<=@endTime and A.[ChangeEndTime]>=@endTime)
                                     or (A.[ChangeStartTime]<=@endTime and A.[ChangeEndTime] is NULL))
-		                            --order by A.[OrganizationID]
 		                            group by A.[OrganizationID],C.[Name])
 		                            order by A.[OrganizationID],A.[ChangeStartTime]";
                 SqlParameter[] Allparameter ={
@@ -102,7 +112,9 @@ namespace MaterialChange.Service.Production
 		                          ,B.[MaterialDataTableName]
                                   ,'' as [LevelCode]
                                   ,'leafnode' as [NodeType]
-	                          FROM [NXJC].[dbo].[material_MaterialChangeLog] A,[NXJC].[dbo].[material_MaterialChangeContrast] B,[NXJC].[dbo].[system_Organization] C
+	                          FROM [dbo].[material_MaterialChangeLog] A,
+                                   [dbo].[material_MaterialChangeContrast] B,
+                                   [dbo].[system_Organization] C
 	                          where A.OrganizationID=@productionLine
                                     and A.OrganizationID=C.OrganizationID
 	                                and B.[ContrastID]=A.[ContrastID]
@@ -126,7 +138,9 @@ namespace MaterialChange.Service.Production
 		                          ,'' as [MaterialDataTableName]
                                   ,'' as [LevelCode]
                                   ,'node' as [NodeType]
-	                          FROM [NXJC].[dbo].[material_MaterialChangeLog] A,[NXJC].[dbo].[material_MaterialChangeContrast] B,[NXJC].[dbo].[system_Organization] C
+	                          FROM [dbo].[material_MaterialChangeLog] A,
+                                   [dbo].[material_MaterialChangeContrast] B,
+                                   [dbo].[system_Organization] C
 	                          where A.OrganizationID=@productionLine
                                     and A.OrganizationID=C.OrganizationID
 	                                and B.[ContrastID]=A.[ContrastID]
@@ -146,14 +160,14 @@ namespace MaterialChange.Service.Production
                                           new SqlParameter("endTime", endTime)
                                        };
                 table = dataFactory.Query(sql, parameter);
-                DataRow row;
-                row = table.NewRow();
+                DataRow row = table.NewRow();
                 row["OrganizationID"] = productionLine;
                 row["LevelCode"] = "M01";
             }         
             table.Columns.Add("Production");
             table.Columns.Add("Formula");
             table.Columns.Add("Consumption");
+            table.Columns.Add("ClinkerConsumptionValue");
             int count = table.Rows.Count;
             for (int j = 0; j < count; j++)
             {
@@ -183,20 +197,13 @@ namespace MaterialChange.Service.Production
                     string changeEndTime = table.Rows[i]["ChangeEndTime"].ToString().Trim();
                     string materialColumn = table.Rows[i]["MaterialColumn"].ToString().Trim();
                     string m_productionLine = table.Rows[i]["OrganizationID"].ToString().Trim();
-                    //string mProductionLine = table.Rows[i]["OrganizationID"].ToString().Trim();
-                    //                string mSql = @"select cast(sum(A.{0}) as decimal(18,2)) as [MaterialProduction]
-                    //                                      ,cast(sum(B.[FormulaValue]) as decimal(18,2)) as [Formula]
-                    //                                from {1}.[dbo].{2} A,{1}.[dbo].[HistoryFormulaValue] B
-                    //                                where A.[vDate]>=@changeStartTime
-                    //                                      and A.[vDate]<=@changeEndTime
-                    //                                      and B.[OrganizationID]=@productionLine
-                    //                                      and B.[vDate]>=@changeStartTime
-                    //                                      and B.[vDate]<=@changeEndTime";
-                    string mSql = @"select cast(sum([FormulaValue]) as decimal(18,2)) as [Formula] from {0}.[dbo].[HistoryFormulaValue]
-                                where vDate>=@changeStartTime
-                                        and vDate<=@changeEndTime
-                                        and variableId = 'cementPreparation'
-	                                    and [OrganizationID]=@m_productionLine";
+                    //计算电量
+                    string mSql = @"select cast(sum(FormulaValue) as decimal(18,2)) as Formula 
+                                    from {0}.[dbo].[HistoryFormulaValue]
+                                    where vDate>=@changeStartTime
+                                      and vDate<=@changeEndTime
+                                      and variableId = 'cementPreparation'
+	                                  and OrganizationID=@m_productionLine";
                     SqlParameter[] para ={
                                         new SqlParameter("m_productionLine", m_productionLine),
                                         new SqlParameter("changeStartTime", changeStartTime),
@@ -204,16 +211,56 @@ namespace MaterialChange.Service.Production
                                      };
                     DataTable passTable = dataFactory.Query(string.Format(mSql, materialDataBaseName), para);
                     string mFormula = passTable.Rows[0]["Formula"].ToString().Trim();
-                    string mSsql = @"select cast(sum({0}) as decimal(18,2)) as [MaterialProduction] from {1}.[dbo].{2}
-                                where vDate>=@changeStartTime
-                                      and vDate<=@changeEndTime";
-                    SqlParameter[] paras ={
-                                        new SqlParameter("changeStartTime", changeStartTime),
-
-                                        new SqlParameter("changeEndTime", changeEndTime)
-                                     };
+                    //计算水泥产量
+                    string mSsql = @"select cast(sum({0}) as decimal(18,2)) as [MaterialProduction] 
+                                       from {1}.[dbo].{2}
+                                      where vDate>=@changeStartTime
+                                        and vDate<=@changeEndTime";
+                    SqlParameter[] paras ={ new SqlParameter("changeStartTime", changeStartTime),
+                                            new SqlParameter("changeEndTime", changeEndTime)};
                     DataTable resultTable = dataFactory.Query(string.Format(mSsql, materialColumn, materialDataBaseName, materialDataTableName), paras);
                     string mProduction = resultTable.Rows[0]["MaterialProduction"].ToString().Trim();
+                    //计算熟料消耗量 闫添加
+                    string mClinkerConsumptionFormulaSql= @"SELECT A.VariableId
+                                                         ,A.Name
+                                                         ,A.KeyID
+                                                         ,A.Type
+                                                         ,A.TagTableName
+                                                         ,A.Formula
+                                                    FROM [dbo].[material_MaterialDetail] A
+                                                        ,[dbo].[tz_Material] B   
+                                                    where B.OrganizationID='{0}'
+                                                      and B.KeyID=A.KeyID
+                                                      and (A.VariableId='clinker_ClinkerInput' or A.VariableId='clinker_ClinkerOutsourcingInput')";
+                    mClinkerConsumptionFormulaSql = string.Format(mClinkerConsumptionFormulaSql, m_productionLine);
+                    DataTable mClinkerConsumptionFormulaTable = new DataTable();
+                    try
+                    {
+                        mClinkerConsumptionFormulaTable = dataFactory.Query(mClinkerConsumptionFormulaSql);
+                    }
+                    catch {
+                        return null;
+                    }
+                    string mClinkerConsumptionFormula = "";//熟料消耗量公式
+                    if (mClinkerConsumptionFormulaTable != null) {
+                        if (mClinkerConsumptionFormulaTable.Rows[0]["Formula"].ToString().Trim() == "0") {
+                            mClinkerConsumptionFormulaTable.Rows[0]["Formula"] = "";
+                        }
+                        if (mClinkerConsumptionFormulaTable.Rows[1]["Formula"].ToString().Trim() == "0")
+                        {
+                            mClinkerConsumptionFormulaTable.Rows[1]["Formula"] = "";
+                        }
+                        mClinkerConsumptionFormula = (mClinkerConsumptionFormulaTable.Rows[0]["Formula"].ToString().Trim() + mClinkerConsumptionFormulaTable.Rows[1]["Formula"].ToString().Trim()).Trim();
+                    }
+                    string mClinkerConsumptionValueSql = @"select cast(sum({0}) as decimal(18,2)) as ClinkerConsumptionValue
+                                                             from {1}.[dbo].{2}
+                                                            where vDate>=@changeStartTime
+                                                              and vDate<=@changeEndTime";
+                    SqlParameter[] mClinkerConsumptionValueParas ={ new SqlParameter("changeStartTime", changeStartTime),
+                                                                    new SqlParameter("changeEndTime", changeEndTime)};
+                    DataTable mClinkerConsumptionValueTable = dataFactory.Query(string.Format(mClinkerConsumptionValueSql, mClinkerConsumptionFormula, materialDataBaseName, materialDataTableName), mClinkerConsumptionValueParas);
+                    string mClinkerConsumptionValue = mClinkerConsumptionValueTable.Rows[0]["ClinkerConsumptionValue"].ToString().Trim();
+                    table.Rows[i]["ClinkerConsumptionValue"] = mClinkerConsumptionValue;
                     table.Rows[i]["Production"] = mProduction;
                     table.Rows[i]["Formula"] = mFormula;
                 }               
