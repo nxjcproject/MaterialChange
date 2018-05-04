@@ -17,13 +17,13 @@
       <publishTime>12/01/2017 00:00:46</publishTime>
     </File>
     <File Include="bin/MaterialChange.Infrastructure.dll">
-      <publishTime>04/12/2018 14:48:44</publishTime>
+      <publishTime>05/04/2018 11:08:49</publishTime>
     </File>
     <File Include="bin/MaterialChange.Service.dll">
-      <publishTime>04/12/2018 14:48:45</publishTime>
+      <publishTime>05/04/2018 11:08:49</publishTime>
     </File>
     <File Include="bin/MaterialChange.Web.dll">
-      <publishTime>04/12/2018 14:48:45</publishTime>
+      <publishTime>05/04/2018 11:08:50</publishTime>
     </File>
     <File Include="bin/SqlServerDataAdapter.dll">
       <publishTime>12/01/2017 00:00:46</publishTime>
@@ -4574,7 +4574,7 @@
       <publishTime>12/27/2017 10:40:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/12/2018 14:48:50</publishTime>
+      <publishTime>05/04/2018 11:08:53</publishTime>
     </File>
   </ItemGroup>
 </Project>

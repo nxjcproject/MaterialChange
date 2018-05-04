@@ -231,26 +231,36 @@ namespace MaterialChange.Service.Production
                                                         ,[dbo].[tz_Material] B   
                                                     where B.OrganizationID='{0}'
                                                       and B.KeyID=A.KeyID
-                                                      and (A.VariableId='clinker_ClinkerInput' or A.VariableId='clinker_ClinkerOutsourcingInput')";
+                                                      and A.VariableId in ('clinker_ClinkerInput','clinker_ClinkerOutsourcingInput','clinker_ClinkerCompanyTransportInput','clinker_ClinkerFactoryTransportInput')";
                     mClinkerConsumptionFormulaSql = string.Format(mClinkerConsumptionFormulaSql, m_productionLine);
                     DataTable mClinkerConsumptionFormulaTable = new DataTable();
                     try
                     {
                         mClinkerConsumptionFormulaTable = dataFactory.Query(mClinkerConsumptionFormulaSql);
                     }
-                    catch {
+                    catch 
+                    {
                         return null;
                     }
-                    string mClinkerConsumptionFormula = "";//熟料消耗量公式
-                    if (mClinkerConsumptionFormulaTable != null) {
-                        if (mClinkerConsumptionFormulaTable.Rows[0]["Formula"].ToString().Trim() == "0") {
-                            mClinkerConsumptionFormulaTable.Rows[0]["Formula"] = "";
-                        }
-                        if (mClinkerConsumptionFormulaTable.Rows[1]["Formula"].ToString().Trim() == "0")
+                    StringBuilder mClinkerConsumptionFormula = new StringBuilder();//熟料消耗量公式
+                    if (mClinkerConsumptionFormulaTable != null) 
+                    {
+                        int mCount = mClinkerConsumptionFormulaTable.Rows.Count;
+                        for (int j = 0; j < mCount; j++)
                         {
-                            mClinkerConsumptionFormulaTable.Rows[1]["Formula"] = "";
+                            if (mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim() != "0" || mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim() != "")
+                            {
+                                if (j == 0)
+                                {
+                                    mClinkerConsumptionFormula.Append(mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim());
+                                }
+                                else
+                                {
+                                    mClinkerConsumptionFormula.Append("+" + mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim());
+                                }
+                            }
+                            
                         }
-                        mClinkerConsumptionFormula = (mClinkerConsumptionFormulaTable.Rows[0]["Formula"].ToString().Trim() + mClinkerConsumptionFormulaTable.Rows[1]["Formula"].ToString().Trim()).Trim();
                     }
                     string mClinkerConsumptionValueSql = @"select cast(sum({0}) as decimal(18,2)) as ClinkerConsumptionValue
                                                              from {1}.[dbo].{2}

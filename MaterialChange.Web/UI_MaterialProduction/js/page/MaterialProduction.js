@@ -100,7 +100,6 @@ function Query() {
             }
         },
         beforeSend: function (XMLHttpRequest) {
-            //alert('远程调用开始...');
             win;
         },
         error: function () {
