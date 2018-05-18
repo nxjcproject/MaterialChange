@@ -19,7 +19,7 @@ namespace MaterialChange.Web.UI_MaterialProduction
             {
 #if DEBUG
                 ////////////////////调试用,自定义的数据授权
-                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_qtx_tys", "zc_nxjc_qtx_efc", "zc_nxjc_lpsc_lpsf" };
+                List<string> m_DataValidIdItems = new List<string>() { "zc_nxjc_byc_byf", "zc_nxjc_qtx_tys", "zc_nxjc_qtx_efc", "zc_nxjc_lpsc_lpsf", "zc_nxjc_ychc_yfcf" };
                 AddDataValidIdGroup("ProductionOrganization", m_DataValidIdItems);
 #elif RELEASE
 #endif

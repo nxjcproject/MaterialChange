@@ -167,7 +167,8 @@ namespace MaterialChange.Service.Production
             table.Columns.Add("Production");
             table.Columns.Add("Formula");
             table.Columns.Add("Consumption");
-            table.Columns.Add("ClinkerConsumptionValue");
+            table.Columns.Add("ClinkerConsumptionValue");//熟料消耗量
+            table.Columns.Add("ClinkerConsumption");//熟料料耗
             int count = table.Rows.Count;
             for (int j = 0; j < count; j++)
             {
@@ -220,7 +221,7 @@ namespace MaterialChange.Service.Production
                                             new SqlParameter("changeEndTime", changeEndTime)};
                     DataTable resultTable = dataFactory.Query(string.Format(mSsql, materialColumn, materialDataBaseName, materialDataTableName), paras);
                     string mProduction = resultTable.Rows[0]["MaterialProduction"].ToString().Trim();
-                    //计算熟料消耗量 闫添加
+                    //计算熟料消耗量 闫潇华添加
                     string mClinkerConsumptionFormulaSql= @"SELECT A.VariableId
                                                          ,A.Name
                                                          ,A.KeyID
@@ -338,6 +339,10 @@ namespace MaterialChange.Service.Production
                 {
                     table.Rows[i]["Production"] = "0";
                 }
+                if (table.Rows[i]["ClinkerConsumptionValue"].ToString() == "")
+                {
+                    table.Rows[i]["ClinkerConsumptionValue"] = "0";
+                }
                 if (table.Rows[i]["Formula"].ToString() == "")
                 {
                     table.Rows[i]["Formula"] = "0";
@@ -351,8 +356,10 @@ namespace MaterialChange.Service.Production
                     {
                         
                         string m_Production = (Convert.ToDouble(table.Rows[i]["Production"].ToString()) + Convert.ToDouble(table.Rows[j]["Production"].ToString())).ToString();
+                        string m_ClinkerConsumptionValue = (Convert.ToDouble(table.Rows[i]["ClinkerConsumptionValue"].ToString()) + Convert.ToDouble(table.Rows[j]["ClinkerConsumptionValue"].ToString())).ToString();
                         string m_Formula = (Convert.ToDouble(table.Rows[i]["Formula"].ToString()) + Convert.ToDouble(table.Rows[j]["Formula"].ToString())).ToString();
                         table.Rows[i]["Production"] = m_Production;
+                        table.Rows[i]["ClinkerConsumptionValue"] = m_ClinkerConsumptionValue;
                         table.Rows[i]["Formula"] = m_Formula;
                         table.Rows.RemoveAt(j);
                         j = j - 1;
@@ -397,17 +404,24 @@ namespace MaterialChange.Service.Production
             {
                 if (table.Rows[i]["Production"].ToString().Trim() != "0.00" && table.Rows[i]["Production"].ToString().Trim() != "")
                 {
+                    string mProduction = table.Rows[i]["Production"].ToString().Trim();
+                    double lastProduction = Convert.ToDouble(mProduction);
                     string mFormula = table.Rows[i]["Formula"].ToString().Trim();
-                    if (mFormula=="")
+                    string mClinkerConsumptionValue = table.Rows[i]["ClinkerConsumptionValue"].ToString().Trim();
+                    if (mFormula == "")
                     {
                         mFormula = "0";
                     }
-                    double lastFormula=Convert.ToDouble(mFormula);
-                    string mProduction = table.Rows[i]["Production"].ToString().Trim();
-                    double lastProduction=Convert.ToDouble(mProduction);
+                    if (mClinkerConsumptionValue == "")
+                    {
+                        mClinkerConsumptionValue = "0";
+                    }
+                    double lastFormula = Convert.ToDouble(mFormula);
+                    double lastClinkerConsumptionValue = Convert.ToDouble(mClinkerConsumptionValue);                   
                     double mConsumption = Convert.ToDouble((lastFormula / lastProduction).ToString("0.00"));
-                    //string lastConsumption = Convert.ToString(mConsumption);
+                    double mClinkerConsumption = Convert.ToDouble((lastClinkerConsumptionValue / lastProduction*100).ToString("0.00"));
                     table.Rows[i]["Consumption"] = mConsumption;
+                    table.Rows[i]["ClinkerConsumption"] = mClinkerConsumption;
                 }
                 if (table.Rows[i]["NodeType"].ToString() == "leafnode" && (table.Rows[i]["Production"].ToString().Trim() == "0.00" || table.Rows[i]["Production"].ToString().Trim() == ""))
                 {
@@ -422,8 +436,10 @@ namespace MaterialChange.Service.Production
                 int length = m_SubRoot.Length;
                 double sumProduction = 0;
                 double sumFormula = 0;
+                double sumClinkerConsumptionValue = 0;
                 for (int j = 0; j < length; j++)
                 {
+                    //产量
                     string mmProduction = m_SubRoot[j]["Production"].ToString().Trim();
                     if (mmProduction == "")
                     {
@@ -431,23 +447,45 @@ namespace MaterialChange.Service.Production
                     }
                     double m_Prodcution = Convert.ToDouble(mmProduction);
                     sumProduction = sumProduction + m_Prodcution;
-                    string mmFormula=m_SubRoot[j]["Formula"].ToString().Trim();
-                    if (mmFormula == "") 
+                    //电量
+                    string mmFormula = m_SubRoot[j]["Formula"].ToString().Trim();
+                    if (mmFormula == "")
                     {
                         mmFormula = "0";
                     }
                     double m_formula = Convert.ToDouble(mmFormula);
                     sumFormula = sumFormula + m_formula;
-                }                
+                    //熟料消耗量
+                    string mmClinkerConsumptionValue = m_SubRoot[j]["ClinkerConsumptionValue"].ToString().Trim();
+                    if (mmClinkerConsumptionValue == "")
+                    {
+                        mmClinkerConsumptionValue = "0";
+                    }
+                    double m_ClinkerConsumptionValue = Convert.ToDouble(mmClinkerConsumptionValue);
+                    sumClinkerConsumptionValue = sumClinkerConsumptionValue + m_ClinkerConsumptionValue;
+                }
                 table.Rows[i]["Production"] = sumProduction;
                 table.Rows[i]["Formula"] = sumFormula;
-                if (sumProduction.ToString("0.00") == "0.00" || sumFormula.ToString("0.00") == "0.00"){
-                    table.Rows[i]["Consumption"] = Convert.ToString("0.00"); 
+                table.Rows[i]["ClinkerConsumptionValue"] = sumClinkerConsumptionValue;
+                //计算熟料料耗
+                if (sumProduction.ToString("0.00") == "0.00" || sumClinkerConsumptionValue.ToString("0.00") == "0.00")
+                {
+                    table.Rows[i]["ClinkerConsumption"] = Convert.ToString("0.00");
                 }
-                else {
+                else
+                {
+                    table.Rows[i]["ClinkerConsumption"] = Convert.ToDouble((sumClinkerConsumptionValue / sumProduction*100).ToString("0.00"));
+                }               
+                //计算电耗
+                if (sumProduction.ToString("0.00") == "0.00" || sumFormula.ToString("0.00") == "0.00")
+                {
+                    table.Rows[i]["Consumption"] = Convert.ToString("0.00");
+                }
+                else
+                {
                     table.Rows[i]["Consumption"] = Convert.ToDouble((sumFormula / sumProduction).ToString("0.00"));
                 }
-                
+
                 i = i + length;
             }
             return table;

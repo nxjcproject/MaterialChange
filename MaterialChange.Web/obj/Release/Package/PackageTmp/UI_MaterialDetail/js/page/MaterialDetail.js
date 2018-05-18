@@ -46,7 +46,7 @@ function LoadTreeGrid(type, myData) {
             columns: [[
                   { field: 'VariableId', title: '水泥品种', width: 150 },
                   {
-                      field: 'ChangeStartTime', title: '开始时间', width: 130,
+                      field: 'ChangeStartTime', title: '开始时间', width: 120,
                       formatter: function (value, row) {
                           if (row.NodeType=="node") {
                               return "";
@@ -57,7 +57,7 @@ function LoadTreeGrid(type, myData) {
                       }
                   },
                   {
-                      field: 'ChangeEndTime', title: '结束时间', width: 130,
+                      field: 'ChangeEndTime', title: '结束时间', width: 120,
                       formatter: function (value, row){
                           if (row.NodeType=="node") {
                               return "";
@@ -67,12 +67,13 @@ function LoadTreeGrid(type, myData) {
                           }
                       }
                   },
-                  { field: 'RunTime', title: '运行时间', width: 100 },
+                  { field: 'RunTime', title: '运行时间', width: 90 },
                   { field: 'Production', title: '产量', width: 70, align: 'right' },
                   { field: 'HourProduction', title: '台时产量', width: 70, align: 'right' },
+                  { field: 'ClinkerConsumptionValue', title: '熟料消耗量', width: 80, align: 'right' },
+                  { field: 'ClinkerConsumption', title: '熟料料耗(%)', width: 80, align: 'right' },
                   { field: 'Formula', title: '工序电量', width: 80, align: 'right' },
                   { field: 'Consumption', title: '工序电耗', width: 70, align: 'right' }
-                  //{ field: 'Production', title: '产量', width: 100, align: 'left' }
             ]],
             fit: true,
             toolbar: "#toorBar",

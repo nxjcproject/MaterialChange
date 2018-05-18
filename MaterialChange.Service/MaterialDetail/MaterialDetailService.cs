@@ -400,7 +400,9 @@ namespace MaterialChange.Service.MaterialDetail
             table.Columns.Add("HourProduction");
             table.Columns.Add("Formula");
             table.Columns.Add("Consumption");
-            //计算分品种电量、电耗、产量
+            table.Columns.Add("ClinkerConsumptionValue");//熟料消耗量
+            table.Columns.Add("ClinkerConsumption");//熟料料耗
+            //计算分品种电量、产量
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 string nodeType = table.Rows[i]["NodeType"].ToString().Trim();
@@ -412,16 +414,8 @@ namespace MaterialChange.Service.MaterialDetail
                     string changeEndTime = table.Rows[i]["ChangeEndTime"].ToString().Trim();
                     string materialColumn = table.Rows[i]["MaterialColumn"].ToString().Trim();
                     string m_productionLine = table.Rows[i]["OrganizationID"].ToString().Trim();
-                    //string mProductionLine = table.Rows[i]["OrganizationID"].ToString().Trim();
-                    //                string mSql = @"select cast(sum(A.{0}) as decimal(18,2)) as [MaterialProduction]
-                    //                                      ,cast(sum(B.[FormulaValue]) as decimal(18,2)) as [Formula]
-                    //                                from {1}.[dbo].{2} A,{1}.[dbo].[HistoryFormulaValue] B
-                    //                                where A.[vDate]>=@changeStartTime
-                    //                                      and A.[vDate]<=@changeEndTime
-                    //                                      and B.[OrganizationID]=@productionLine
-                    //                                      and B.[vDate]>=@changeStartTime
-                    //                                      and B.[vDate]<=@changeEndTime";
-                    string mSql = @"select cast(sum([FormulaValue]) as decimal(18,2)) as [Formula] from {0}.[dbo].[HistoryFormulaValue]
+                    //计算电量
+                    string mSql = @"select cast(sum([FormulaValue]) as decimal(18,1)) as [Formula] from {0}.[dbo].[HistoryFormulaValue]
                                 where vDate>=@changeStartTime
                                         and vDate<=@changeEndTime
                                         and variableId = 'cementPreparation'
@@ -433,16 +427,65 @@ namespace MaterialChange.Service.MaterialDetail
                                      };
                     DataTable passTable = dataFactory.Query(string.Format(mSql, materialDataBaseName), para);
                     string mFormula = passTable.Rows[0]["Formula"].ToString().Trim();
-                    string mSsql = @"select cast(sum({0}) as decimal(18,2)) as [MaterialProduction] from {1}.[dbo].{2}
+                    //计算产量
+                    string mSsql = @"select cast(sum({0}) as decimal(18,1)) as [MaterialProduction] from {1}.[dbo].{2}
                                 where vDate>=@changeStartTime
                                       and vDate<=@changeEndTime";
-                    SqlParameter[] paras ={
-                                        new SqlParameter("changeStartTime", changeStartTime),
-
-                                        new SqlParameter("changeEndTime", changeEndTime)
-                                     };
+                    SqlParameter[] paras ={ new SqlParameter("changeStartTime", changeStartTime),
+                                            new SqlParameter("changeEndTime", changeEndTime)};
                     DataTable resultTable = dataFactory.Query(string.Format(mSsql, materialColumn, materialDataBaseName, materialDataTableName), paras);
                     string mProduction = resultTable.Rows[0]["MaterialProduction"].ToString().Trim();
+                    //计算熟料消耗量 闫潇华添加
+                    string mClinkerConsumptionFormulaSql = @"SELECT A.VariableId
+                                                         ,A.Name
+                                                         ,A.KeyID
+                                                         ,A.Type
+                                                         ,A.TagTableName
+                                                         ,A.Formula
+                                                    FROM [dbo].[material_MaterialDetail] A
+                                                        ,[dbo].[tz_Material] B   
+                                                    where B.OrganizationID='{0}'
+                                                      and B.KeyID=A.KeyID
+                                                      and A.VariableId in ('clinker_ClinkerInput','clinker_ClinkerOutsourcingInput','clinker_ClinkerCompanyTransportInput','clinker_ClinkerFactoryTransportInput')";
+                    mClinkerConsumptionFormulaSql = string.Format(mClinkerConsumptionFormulaSql, m_productionLine);
+                    DataTable mClinkerConsumptionFormulaTable = new DataTable();
+                    try
+                    {
+                        mClinkerConsumptionFormulaTable = dataFactory.Query(mClinkerConsumptionFormulaSql);
+                    }
+                    catch
+                    {
+                        return null;
+                    }
+                    StringBuilder mClinkerConsumptionFormula = new StringBuilder();//熟料消耗量公式
+                    if (mClinkerConsumptionFormulaTable != null)
+                    {
+                        int mCount = mClinkerConsumptionFormulaTable.Rows.Count;
+                        for (int j = 0; j < mCount; j++)
+                        {
+                            if (mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim() != "0" || mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim() != "")
+                            {
+                                if (j == 0)
+                                {
+                                    mClinkerConsumptionFormula.Append(mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim());
+                                }
+                                else
+                                {
+                                    mClinkerConsumptionFormula.Append("+" + mClinkerConsumptionFormulaTable.Rows[j]["Formula"].ToString().Trim());
+                                }
+                            }
+
+                        }
+                    }
+                    string mClinkerConsumptionValueSql = @"select cast(sum({0}) as decimal(18,1)) as ClinkerConsumptionValue
+                                                             from {1}.[dbo].{2}
+                                                            where vDate>=@changeStartTime
+                                                              and vDate<=@changeEndTime";
+                    SqlParameter[] mClinkerConsumptionValueParas ={ new SqlParameter("changeStartTime", changeStartTime),
+                                                                    new SqlParameter("changeEndTime", changeEndTime)};
+                    DataTable mClinkerConsumptionValueTable = dataFactory.Query(string.Format(mClinkerConsumptionValueSql, mClinkerConsumptionFormula, materialDataBaseName, materialDataTableName), mClinkerConsumptionValueParas);
+                    string mClinkerConsumptionValue = mClinkerConsumptionValueTable.Rows[0]["ClinkerConsumptionValue"].ToString().Trim();
+                    table.Rows[i]["ClinkerConsumptionValue"] = mClinkerConsumptionValue;
                     table.Rows[i]["Production"] = mProduction;
                     table.Rows[i]["Formula"] = mFormula;
                 }
@@ -466,36 +509,38 @@ namespace MaterialChange.Service.MaterialDetail
                     }
                 }
             }
-            DataColumn stateColumn = new DataColumn("state", typeof(string));
-            table.Columns.Add(stateColumn);
+
             //计算电耗
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 if (table.Rows[i]["Production"].ToString().Trim() != "0.00" && table.Rows[i]["Production"].ToString().Trim() != "")
                 {
+                    string mProduction = table.Rows[i]["Production"].ToString().Trim();
+                    double lastProduction = Convert.ToDouble(mProduction);
                     string mFormula = table.Rows[i]["Formula"].ToString().Trim();
+                    string mClinkerConsumptionValue = table.Rows[i]["ClinkerConsumptionValue"].ToString().Trim();
                     if (mFormula == "")
                     {
                         mFormula = "0";
                     }
-                    double lastFormula = Convert.ToDouble(mFormula);
-                    string mProduction = table.Rows[i]["Production"].ToString().Trim();
-                    //if (mProduction == "")
-                    //{
-                    //    mProduction = "0";
-                    //}
-                    double lastProduction = Convert.ToDouble(mProduction);
+                    if (mClinkerConsumptionValue == "")
+                    {
+                        mClinkerConsumptionValue = "0";
+                    }
+                    double lastFormula = Convert.ToDouble(mFormula);                   
                     double mConsumption = Convert.ToDouble((lastFormula / lastProduction).ToString("0.00"));
-                    //string lastConsumption = Convert.ToString(mConsumption);
+                    double lastClinkerConsumptionValue = Convert.ToDouble(mClinkerConsumptionValue);
+                    double mClinkerConsumption = Convert.ToDouble((lastClinkerConsumptionValue / lastProduction * 100).ToString("0.00"));
                     table.Rows[i]["Consumption"] = mConsumption;
+                    table.Rows[i]["ClinkerConsumption"] = mClinkerConsumption;
                 }
                 if (table.Rows[i]["NodeType"].ToString() == "leafnode" && (table.Rows[i]["Production"].ToString().Trim() == "0.00" || table.Rows[i]["Production"].ToString().Trim() == ""))
                 {
                     string mConsumption = "";
+                    string mClinkerConsumption = "";
                     table.Rows[i]["Consumption"] = mConsumption;
-                }
-                //string firstName = table.Rows[i]["Name"].ToString().Trim();
-                //string secondName = table.Rows[i + 1]["Name"].ToString().Trim();                
+                    table.Rows[i]["ClinkerConsumption"] = mClinkerConsumption;
+                }           
             }
             //得到主节点以品种的总计
             for (int i = 0; i < table.Rows.Count; )
@@ -505,9 +550,10 @@ namespace MaterialChange.Service.MaterialDetail
                 int length = m_SubRoot.Length;
                 double sumProduction = 0;
                 double sumFormula = 0;
-                //double sumConsumption = 0;
+                double sumClinkerConsumptionValue = 0;
                 for (int j = 0; j < length; j++)
                 {
+                    //计算产量
                     string mmProduction = m_SubRoot[j]["Production"].ToString().Trim();
                     if (mmProduction == "")
                     {
@@ -515,6 +561,7 @@ namespace MaterialChange.Service.MaterialDetail
                     }
                     double m_Prodcution = Convert.ToDouble(mmProduction);
                     sumProduction = sumProduction + m_Prodcution;
+                    //计算电量
                     string mmFormula = m_SubRoot[j]["Formula"].ToString().Trim();
                     if (mmFormula == "")
                     {
@@ -522,23 +569,36 @@ namespace MaterialChange.Service.MaterialDetail
                     }
                     double m_formula = Convert.ToDouble(mmFormula);
                     sumFormula = sumFormula + m_formula;
-                    //string mmConsumption = m_SubRoot[j]["Consumption"].ToString().Trim();
-                    //if (mmConsumption == "")
-                    //{
-                    //    mmConsumption = "0";
-                    //}
-                    //double m_consumption = Convert.ToDouble(mmConsumption);
-                    //sumConsumption = sumConsumption + m_consumption;
+                    //熟料消耗量 闫潇华添加
+                    string mmClinkerConsumptionValue = m_SubRoot[j]["ClinkerConsumptionValue"].ToString().Trim();
+                    if (mmClinkerConsumptionValue == "")
+                    {
+                        mmClinkerConsumptionValue = "0";
+                    }
+                    double m_ClinkerConsumptionValue = Convert.ToDouble(mmClinkerConsumptionValue);
+                    sumClinkerConsumptionValue = sumClinkerConsumptionValue + m_ClinkerConsumptionValue;
                 }
                 table.Rows[i]["Production"] = sumProduction;
                 table.Rows[i]["Formula"] = sumFormula;
-                if (sumProduction.ToString().Trim() == "0" || sumProduction.ToString().Trim() == "")
+                table.Rows[i]["ClinkerConsumptionValue"] = sumClinkerConsumptionValue;
+                //计算电耗
+                if (sumProduction.ToString("0.00").Trim() == "0.00" || sumProduction.ToString("0.00").Trim() == "0.00")
                 {
-                    table.Rows[i]["Consumption"] = "0";
+                    table.Rows[i]["Consumption"] = "0.00";
                 }
-                else {
+                else 
+                {
                     table.Rows[i]["Consumption"] = Convert.ToDouble((sumFormula / sumProduction).ToString("0.00"));
-                }              
+                }
+                //计算熟料料耗
+                if (sumProduction.ToString("0.00") == "0.00" || sumClinkerConsumptionValue.ToString("0.00") == "0.00")
+                {
+                    table.Rows[i]["ClinkerConsumption"] = Convert.ToString("0.00");
+                }
+                else
+                {
+                    table.Rows[i]["ClinkerConsumption"] = Convert.ToDouble((sumClinkerConsumptionValue / sumProduction * 100).ToString("0.00"));
+                }               
                 i = i + length;
             }
             for (int i = 0; i < table.Rows.Count; i++)
@@ -556,15 +616,6 @@ namespace MaterialChange.Service.MaterialDetail
                     table.Rows[i]["Formula"] = 0;
                 }
             }
-            //for (int i = 0; i < table.Rows.Count; i++)
-            //{
-            //    if (table.Rows[i]["NodeType"].ToString()=="node")
-            //    {
-            //        table.Rows[i]["ChangeStartTime"] = "";
-            //        table.Rows[i]["ChangeEndTime"] = "";
-            //    }
-            //}
-            //DataTable testTable = MachineProduction(machineTable, table);
             DataTable connectTable = PerMachineProduction(table);
             DataTable resultTbal = ChangeRunTime(connectTable);
             return connectTable;
@@ -591,7 +642,6 @@ namespace MaterialChange.Service.MaterialDetail
                 int length = m_SubRoot.Length;
                 double sumProduction = Convert.ToDouble(table.Rows[i]["Production"].ToString());
                 double sumRunTime = 0;
-                //double sumHourProduction = 0;
                 for (int j = 0; j < length; j++)
                 {
                     string mmRunTime = m_SubRoot[j]["RunTime"].ToString().Trim();
@@ -601,13 +651,6 @@ namespace MaterialChange.Service.MaterialDetail
                     }
                     double m_RunTime = Convert.ToDouble(mmRunTime);
                     sumRunTime = sumRunTime + m_RunTime;
-                    //string mmHourProduction = m_SubRoot[j]["HourProduction"].ToString().Trim();
-                    //if (mmHourProduction == "")
-                    //{
-                    //    mmHourProduction = "0";
-                    //}
-                    //double m_HourProduction = Convert.ToDouble(mmHourProduction);
-                    //sumConsumption = sumHourProduction + m_HourProduction;
                 }
                 table.Rows[i]["RunTime"] = sumRunTime;
                 table.Rows[i]["HourProduction"] = Convert.ToDouble((sumProduction / sumRunTime).ToString("0.00"));
