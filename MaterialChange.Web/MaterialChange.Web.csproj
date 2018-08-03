@@ -73,6 +73,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\common\components\Charts.js" />
+    <Content Include="js\common\components\DataGrid.js" />
+    <Content Include="js\common\components\GridChart.js" />
+    <Content Include="js\common\components\WindowsDialog.js" />
+    <Content Include="js\common\format\DateTimeFormat.js" />
+    <Content Include="js\common\json2.min.js" />
+    <Content Include="js\common\PrintFile.js" />
     <Content Include="lib\ealib\changelog.txt" />
     <Content Include="lib\ealib\easyloader.js" />
     <Content Include="lib\ealib\easyui-lang-zh_CN.js" />
@@ -1617,6 +1624,9 @@
       <Project>{ee989998-a4a1-449f-88e0-e08fb708db6a}</Project>
       <Name>MaterialChange.Service</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="js\page\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

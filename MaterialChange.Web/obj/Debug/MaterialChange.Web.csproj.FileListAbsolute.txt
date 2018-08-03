@@ -96,3 +96,6 @@ C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\Mate
 C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Web\obj\Debug\MaterialChange.Web.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Web\obj\Debug\MaterialChange.Web.dll
 C:\Users\Administrator\Desktop\NXJC统一调整列宽\MaterialChange-master\MaterialChange.Web\obj\Debug\MaterialChange.Web.pdb
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\FileIO.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\FormTableConvert.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Web\bin\UpDownLoadFiles.dll

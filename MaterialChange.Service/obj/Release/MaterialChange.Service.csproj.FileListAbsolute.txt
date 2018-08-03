@@ -48,3 +48,7 @@ C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\bin\Release
 C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.dll
 C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\obj\Release\MaterialChange.Service.pdb
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\bin\Release\EasyUIJsonParser.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\bin\Release\FileIO.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\bin\Release\FormTableConvert.dll
+C:\Users\Administrator\Desktop\MaterialChange\MaterialChange.Service\bin\Release\UpDownLoadFiles.dll

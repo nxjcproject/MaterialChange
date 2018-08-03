@@ -1,4 +1,7 @@
-﻿$(function () {
+﻿var SelectOrganizationName = "";
+var SelectDatetime = "";
+
+$(function () {
     InitialDate();
     LoadTreeGrid("first");
 });
@@ -31,7 +34,13 @@ function LoadProductionLine(value) {
                 textField: 'Name',
                 panelHeight: 'auto',
                 data: myData.rows,
-                onSelect: function (record) {
+                onLoadSuccess: function () { //加载完成后,设置选中第一项
+                    var val = $(this).combobox("getData");
+                    for (var item in val[0]) {
+                        if (item == "ID") {
+                            $(this).combobox("select", val[0][item]);
+                        }
+                    }
                 }
             });
         },
@@ -90,6 +99,11 @@ function LoadTreeGrid(type, myData) {
     }
 }
 function Query() {
+    SelectOrganizationName = $('#organizationName').textbox('getText');
+    var startDate = $('#startTime').datetimespinner('getValue');//开始时间
+    var endDate = $('#endTime').datetimespinner('getValue');//结束时间
+    SelectDatetime = startDate + ' 至 ' + endDate;
+
     var startTime = $('#startTime').datebox('getValue');
     var endTime = $('#endTime').datebox('getValue');
     var materialType = $('#materialType').combobox('getText');
@@ -123,4 +137,42 @@ function Query() {
             $.messager.alert('失败', '加载失败！');
         }
     });
+}
+
+function ExportFileFun() {
+    var m_FunctionName = "ExcelStream";
+    var m_Parameter1 = GetTreeTableHtml("grid_Main", "水泥分品种报表", "VariableId", SelectOrganizationName, SelectDatetime);
+    var m_Parameter2 = SelectOrganizationName;
+
+    var m_ReplaceAlllt = new RegExp("<", "g");
+    var m_ReplaceAllgt = new RegExp(">", "g");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAlllt, "&lt;");
+    m_Parameter1 = m_Parameter1.replace(m_ReplaceAllgt, "&gt;");
+
+    var form = $("<form id = 'ExportFile'>");   //定义一个form表单
+    form.attr('style', 'display:none');   //在form表单中添加查询参数
+    form.attr('target', '');
+    form.attr('method', 'post');
+    form.attr('action', "MaterialDetail.aspx");
+
+    var input_Method = $('<input>');
+    input_Method.attr('type', 'hidden');
+    input_Method.attr('name', 'myFunctionName');
+    input_Method.attr('value', m_FunctionName);
+    var input_Data1 = $('<input>');
+    input_Data1.attr('type', 'hidden');
+    input_Data1.attr('name', 'myParameter1');
+    input_Data1.attr('value', m_Parameter1);
+    var input_Data2 = $('<input>');
+    input_Data2.attr('type', 'hidden');
+    input_Data2.attr('name', 'myParameter2');
+    input_Data2.attr('value', m_Parameter2);
+
+    $('body').append(form);  //将表单放置在web中 
+    form.append(input_Method);   //将查询参数控件提交到表单上
+    form.append(input_Data1);   //将查询参数控件提交到表单上
+    form.append(input_Data2);   //将查询参数控件提交到表单上
+    form.submit();
+    //释放生成的资源
+    form.remove();
 }

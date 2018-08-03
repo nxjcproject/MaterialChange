@@ -39,33 +39,28 @@
                         <td>
                              <input id="startTime" type="text" class="easyui-datetimebox" style="width:150px;" required="required"/>
                         </td>
-                        <%--<td>产线</td>
-                        <td>
-                            <input id="productionLine" type="text" class="easyui-combobox" style="width:150px;" />
-                        </td>--%>
                     </tr>
                     <tr>
                         <td style="width: 60px; text-align: right;">水泥品种</td>
                         <td>
                             <input id="materialType" type="text" class="easyui-combobox" style="width:100px;" />
                         </td>
-                        <%--<td>开始时间：</td>
-                        <td>
-                             <input id="startTime" type="text" class="easyui-datetimebox" style="width:150px;" required="required"/>
-                        </td>--%>
                            <td style="width: 60px; text-align: right;">结束时间</td>
                          <td>
                              <input id="endTime" type="text" class="easyui-datetimebox" style="width:150px;" required="required"/>
                         </td>
-                        <td>
-                            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="Query()">查询</a>
+                        <td style="width: 60px; text-align: right;">
+                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="Query()">查询</a>
+                        </td>
+                        <td style="width: 80px; text-align: right;">
+                            <a href="#" class="easyui-linkbutton" data-options="iconCls:'ext-icon-page_white_excel',plain:true" onclick="ExportFileFun();">导出</a>
                         </td>               
                     </tr>
                 </table>         
             </div>
 	    </div> 
          <div data-options="region:'center'" style="padding:5px;background:#eee;">
-             <table id="grid_Main"class="easyui-treegrid"></table>
+             <table id="grid_Main" class="easyui-treegrid"></table>
          </div>
     </div>
 </body>

@@ -13,20 +13,29 @@
     <File Include="bin/EasyUIJsonParser.dll">
       <publishTime>12/01/2017 00:00:46</publishTime>
     </File>
+    <File Include="bin/FileIO.dll">
+      <publishTime>08/20/2017 19:43:47</publishTime>
+    </File>
+    <File Include="bin/FormTableConvert.dll">
+      <publishTime>08/20/2017 19:43:47</publishTime>
+    </File>
     <File Include="bin/InternalMemeryRestore.dll">
       <publishTime>12/01/2017 00:00:46</publishTime>
     </File>
     <File Include="bin/MaterialChange.Infrastructure.dll">
-      <publishTime>05/18/2018 09:48:13</publishTime>
+      <publishTime>08/03/2018 17:28:00</publishTime>
     </File>
     <File Include="bin/MaterialChange.Service.dll">
-      <publishTime>05/18/2018 09:48:13</publishTime>
+      <publishTime>08/03/2018 17:28:00</publishTime>
     </File>
     <File Include="bin/MaterialChange.Web.dll">
-      <publishTime>05/18/2018 09:48:14</publishTime>
+      <publishTime>08/03/2018 17:28:01</publishTime>
     </File>
     <File Include="bin/SqlServerDataAdapter.dll">
       <publishTime>12/01/2017 00:00:46</publishTime>
+    </File>
+    <File Include="bin/UpDownLoadFiles.dll">
+      <publishTime>08/20/2017 19:43:47</publishTime>
     </File>
     <File Include="bin/WebStyleBaseForEnergy.dll">
       <publishTime>12/01/2017 00:00:46</publishTime>
@@ -39,6 +48,27 @@
     </File>
     <File Include="bin/WebUserControls.Service.dll">
       <publishTime>12/01/2017 00:00:46</publishTime>
+    </File>
+    <File Include="js/common/components/Charts.js">
+      <publishTime>08/03/2018 17:20:44</publishTime>
+    </File>
+    <File Include="js/common/components/DataGrid.js">
+      <publishTime>08/03/2018 17:20:44</publishTime>
+    </File>
+    <File Include="js/common/components/GridChart.js">
+      <publishTime>08/03/2018 17:20:44</publishTime>
+    </File>
+    <File Include="js/common/components/WindowsDialog.js">
+      <publishTime>08/03/2018 17:20:44</publishTime>
+    </File>
+    <File Include="js/common/format/DateTimeFormat.js">
+      <publishTime>08/03/2018 17:20:44</publishTime>
+    </File>
+    <File Include="js/common/json2.min.js">
+      <publishTime>08/03/2018 17:20:44</publishTime>
+    </File>
+    <File Include="js/common/PrintFile.js">
+      <publishTime>08/03/2018 17:20:44</publishTime>
     </File>
     <File Include="lib/ealib/changelog.txt">
       <publishTime>12/01/2017 00:00:46</publishTime>
@@ -4562,10 +4592,10 @@
       <publishTime>12/01/2017 00:00:46</publishTime>
     </File>
     <File Include="UI_MaterialDetail/js/page/MaterialDetail.js">
-      <publishTime>05/17/2018 18:31:08</publishTime>
+      <publishTime>08/03/2018 17:17:26</publishTime>
     </File>
     <File Include="UI_MaterialDetail/MaterialDetail.aspx">
-      <publishTime>12/26/2017 17:50:03</publishTime>
+      <publishTime>08/03/2018 17:16:34</publishTime>
     </File>
     <File Include="UI_MaterialProduction/js/page/MaterialProduction.js">
       <publishTime>05/17/2018 15:55:11</publishTime>
@@ -4574,7 +4604,7 @@
       <publishTime>12/27/2017 10:40:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/18/2018 09:48:20</publishTime>
+      <publishTime>08/03/2018 17:28:05</publishTime>
     </File>
   </ItemGroup>
 </Project>
